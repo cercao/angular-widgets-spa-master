@@ -1,0 +1,111 @@
+
+        <div class="page-content">
+
+          <!-- Header Bar -->
+          <div class="row header col-xs-12">
+            <div class="user pull-right">
+              <div class="item dropdown">
+                <a href="#" class="dropdown-toggle"><img src="img/avatar.jpg" alt=""></a>
+              </div>
+            </div>
+            <div class="meta">
+              <div class="page">Dashboard</div>
+              <div class="breadcrumb-links">Home / Widget</div>
+            </div>
+          </div>
+          <!-- End Header Bar -->
+          
+
+           
+          <!-- Create/Edit -->
+          <div class="row" ng-show="editing || creating">
+
+            <!-- Widget listing -->
+            <div class="col-lg-12">
+              <div class="widget">
+                <div class="widget-header">Create/Edit Template</div>
+                <div class="widget-body">
+                  <form ng-submit="submit()" >
+                    <legend>Create Widget</legend>
+                    <div class="form-group">
+                      <label for="name">Name:</label>
+                      <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="price">Price:</label>
+                      <input type="text" placeholder="0.00"  class="form-control" id="price">
+                    </div>
+                    <div class="form-group">
+                      <label for="color">Color:</label>
+                      <select id="color" class="input-large">
+                        <option>red</option>
+                        <option>purple</option>
+                        <option>black</option>
+                        <option>green</option>
+                        <option>magenta</option>
+                        <option>white</option>
+                        <option>depends on the viewing angle</option>
+                      </select>
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox"> Melts</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="invetory">Inventory:</label>
+                      <input type="text"  placeholder="#?" class="form-control" id="inventory">
+                    </div>
+                    <button type="submit" class="btn btn-default">Save</button>
+                  </form>
+                </div><!-- End Widget body -->
+              </div><!-- End Widget -->
+            </div><!-- End Column -->
+          </div><!-- End Row -->
+
+
+          <!-- Tables -->
+          <div class="row">
+
+            <!-- Widget listing -->
+            <div class="col-lg-12">
+              <div class="widget">
+                <div class="widget-header">Widgets
+                  <div class="pull-right">
+                    <button ng-click="create()" class="btn btn-sm btn-info">+ Create</button>
+                  </div>
+                </div>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-center">ID</th>
+                        <th>Name</th>
+                        <th>Color</th>
+                        <th>Price</th>
+                        <th>Melts?</th>
+                        <th>Inventory</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="widget in widgets | filter:searchW" >
+                        <td></td> 
+                        <td class="text-center">{{ widget.id }}</td>
+                        <td>{{ widget.name }}</td>
+                        <td>{{ widget.color }}</td>
+                        <td>{{ widget.price }}</td>
+                        <td>{{ widget.melts ? "yes" : "no" }}</td>
+                        <td>{{ widget.invetory }}</td>
+                        
+                      </tr>                       
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div><!-- End Widgets -->
+
+          </div><!-- End Row -->
+
+         
+
+
+
+        </div><!-- End Page Content -->

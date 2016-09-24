@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget Factory!</title>
+    <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
+    
+    <script type="text/javascript" src="components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/factories/user-factory.js"></script>
+    <script type="text/javascript" src="js/factories/widget-factory.js"></script>
+    
+    <script type="text/javascript" src="js/controllers/dashboard-ctrl.js"></script>
+    <script type="text/javascript" src="js/controllers/user-list-summary-ctrl.js"></script>
+    <script type="text/javascript" src="js/controllers/user-list-ctrl.js"></script>
+    <script type="text/javascript" src="js/controllers/user-ctrl.js"></script>
+    <script type="text/javascript" src="js/controllers/widget-ctrl.js"></script>
+
+  </head>
+  <body ng-app="angular-widget-app">
+    
+    <div id="page-wrapper" class="open">
+
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar">
+          <li class="sidebar-main"><a ui-sref="dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a></li>
+          <li class="sidebar-title"><span>NAVIGATION</span></li>
+          <li class="sidebar-list"><a ui-sref="dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a></li>
+          <li class="sidebar-list"><a ui-sref="user">Users <span class="menu-icon fa fa-users"></span></a></li>
+          <li class="sidebar-list"><a ui-sref="widget">Widgets <span class="menu-icon fa fa-cubes"></span></a></li>
+        </ul>
+        <div class="sidebar-footer col-xs-12"><a href="#" target="_blank">&copy; 2015 Red Ventures</a></div>
+      </div>
+
+      <!-- End Sidebar -->
+      <div id="content-wrapper">
+        <div class="page-content">
+          <div ui-view></div>         
+        </div><!-- End Page Content -->
+      </div><!-- End Content Wrapper -->
+    </div><!-- End Page Wrapper -->
+  </body>
+</html>
