@@ -2,8 +2,10 @@
 Simple angular application using rest API 
 
 # Instructions
-Install npm and http-server module. 
-Pull the repository and run http-server pointing to the root folder, like this:
+- Install npm;
+- Install http-server module; 
+- Pull the repository 
+- Run http-server pointing to the root folder, like this:
 ```sh
 $ http-server angular-widgets-spa-master
 ```
