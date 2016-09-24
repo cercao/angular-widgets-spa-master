@@ -8,7 +8,7 @@ angular.module('angular-widget-app')
         return $http.get(urlBase);
     };
 
-    dataFactory.getCustomer = function (id) {
+    dataFactory.getUser = function (id) {
         return $http.get(urlBase + '/' + id);
     };   
 

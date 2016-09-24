@@ -22,39 +22,41 @@
 
             <!-- Widget listing -->
             <div class="col-lg-12">
-              <div class="widget">
-                <div class="widget-header">Create/Edit Template</div>
+              <div class="widget">                
                 <div class="widget-body">
                   <form ng-submit="submit()" >
-                    <legend>Create Widget</legend>
+                    <legend ng-bind="editing == true ? 'Edit Widget' : 'Create Widget'"></legend>
                     <div class="form-group">
                       <label for="name">Name:</label>
-                      <input type="text" class="form-control" id="name">
+                      <input type="text" ng-model="widget.name" class="form-control" id="name">
+                      <input type="text" ng-show="false" ng-model="widget.id" class="form-control" id="name">
                     </div>
                     <div class="form-group">
                       <label for="price">Price:</label>
-                      <input type="text" placeholder="0.00"  class="form-control" id="price">
+                      <input type="text" placeholder="0.00" ng-model="widget.price"  class="form-control" id="price">
                     </div>
                     <div class="form-group">
                       <label for="color">Color:</label>
-                      <select id="color" class="input-large">
-                        <option>red</option>
-                        <option>purple</option>
-                        <option>black</option>
-                        <option>green</option>
-                        <option>magenta</option>
-                        <option>white</option>
-                        <option>depends on the viewing angle</option>
+                      <select id="color" class="form-control" ng-model="widget.color" >
+                        <option ng-value="red" >red</option>
+                        <option ng-value="purple">purple</option>
+                        <option ng-value="black">black</option>
+                        <option ng-value="green">green</option>
+                        <option ng-value="magenta">magenta</option>
+                        <option ng-value="white">white</option>
+                        <option ng-value="other">depends on the viewing angle</option>
                       </select>
                     </div>
                     <div class="checkbox">
-                      <label><input type="checkbox"> Melts</label>
+                      <label><input ng-model="widget.melts" type="checkbox"> Melts</label>
                     </div>
                     <div class="form-group">
                       <label for="invetory">Inventory:</label>
-                      <input type="text"  placeholder="#?" class="form-control" id="inventory">
+                      <input type="text" ng-model="widget.inventory" placeholder="#?" class="form-control" id="inventory">
                     </div>
-                    <button type="submit" class="btn btn-default">Save</button>
+                    <div style="text-align: right;">
+                      <button type="submit" class="btn btn-default">Save</button>
+                    </div>
                   </form>
                 </div><!-- End Widget body -->
               </div><!-- End Widget -->
@@ -77,6 +79,7 @@
                   <table class="table">
                     <thead>
                       <tr>
+                        <th>Edit</th>
                         <th class="text-center">ID</th>
                         <th>Name</th>
                         <th>Color</th>
@@ -86,14 +89,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="widget in widgets | filter:searchW" >
-                        <td></td> 
+                      <tr ng-repeat="widget in widgets | filter:searchW" >                        
+                        <td class="text-center"><i style="cursor:pointer;" ng-click="edit(widget)" class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
                         <td class="text-center">{{ widget.id }}</td>
                         <td>{{ widget.name }}</td>
                         <td>{{ widget.color }}</td>
                         <td>{{ widget.price }}</td>
                         <td>{{ widget.melts ? "yes" : "no" }}</td>
-                        <td>{{ widget.invetory }}</td>
+                        <td>{{ widget.inventory }}</td>
                         
                       </tr>                       
                     </tbody>

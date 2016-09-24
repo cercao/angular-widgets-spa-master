@@ -12,12 +12,12 @@ angular.module('angular-widget-app')
         return $http.get(urlBase + '/' + id);
     };
 
-    dataFactory.insertWidget = function (cust) {
-        return $http.post(urlBase, cust);
+    dataFactory.insertWidget = function (widget) {
+        return $http.post(urlBase, widget);
     };
 
-    dataFactory.updateWidget = function (cust) {
-        return $http.put(urlBase + '/' + cust.ID, cust)
+    dataFactory.updateWidget = function (widget) {
+        return $http.put(urlBase + '/' + widget.id, widget)
     };    
 
     return dataFactory;
