@@ -8,7 +8,8 @@ angular.module('angular-widget-app')
       .then(function (response) {
           $scope.widgets = response.data;
       }, function (error) {
-          alert('Unable to load widget data: ' + error.message);
+          error.message ? 
+                alert('Unable to list widget data: ' + error.message) : alert('Unable to list widget data.')
       }); 
        
      // habilitates creating mode and sets new widget
@@ -28,18 +29,15 @@ angular.module('angular-widget-app')
                 $scope.creating = false;
                 $scope.widget = response.data;                
             }, function (error) {
-                if(error.message) {
-                    alert('Unable to getting widget data: ' + error.message);      
-                } else {
-                    alert('Unable to getting widget data.');
-                }
+                error.message ? 
+                    alert('Unable to getting widget data: ' + error.message) : alert('Unable to getting widget data.')
             });            
      };
      
      $scope.submit = function(){
         
         if (!$scope.widgetForm.$valid) {
-            alert('Form is not valid');
+            alert('Please, insert at least Name.');
 	        return;
         }
         
@@ -50,12 +48,10 @@ angular.module('angular-widget-app')
                     $scope.creating = false;
          
                     alert("New widget saved!");
+                    
                 }, function (error) {
-                    if(error.message) {
-                        alert('Unable to creating widget data: ' + error.message);      
-                    } else {
-                        alert('Unable to creating widget data.');
-                    }
+                    error.message ? 
+                        alert('Unable to creating widget data: ' + error.message) : alert('Unable to creating widget data.')
                 });   
          else
             widgetFactory.updateWidget($scope.widget)
@@ -64,12 +60,10 @@ angular.module('angular-widget-app')
                     $scope.creating = false;
                     
                     alert("Selected widget was saved!");
+                    
                 }, function (error) {
-                    if(error.message) {
-                        alert('Unable to insert widget data: ' + error.message);      
-                    } else {
-                        alert('Unable to insert widget data.');
-                    }
+                    error.message ? 
+                        alert('Unable to update widget data: ' + error.message) : alert('Unable to update widget data.')
                 });   
           
      };

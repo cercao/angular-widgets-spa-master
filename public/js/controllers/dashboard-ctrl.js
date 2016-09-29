@@ -6,7 +6,8 @@ angular.module('angular-widget-app')
       .then(function (response) {
           $scope.users = response.data;
       }, function (error) {
-          alert('Unable to load user data: ' + error.message);
+          error.message ? 
+                alert('Unable to load user data: ' + error.message) : alert('Unable to load user data.')
       });      
       
     // find widgets
@@ -14,7 +15,8 @@ angular.module('angular-widget-app')
       .then(function (response) {
           $scope.widgets = response.data;
       }, function (error) {
-          alert('Unable to load widget data: ' + error.message);
+          error.message ? 
+                alert('Unable to load widget data: ' + error.message) : alert('Unable to load widget data.')
       });    
         
             

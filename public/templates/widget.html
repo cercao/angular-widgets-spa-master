@@ -32,10 +32,10 @@
                       <input type="text" ng-show="false" ng-model="widget.id" class="form-control" >
                       <p ng-show="widgetForm.name.$invalid && !widgetForm.name.$pristine" class="help-block">Name field is required.</p>                
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" >
                       <label for="price">Price:</label>
-                      <input type="text" placeholder="0.00" ng-model="widget.price" required class="form-control" name="value" id="price">
-                      <p ng-show="widgetForm.value.$invalid && !widgetForm.value.$pristine" class="help-block">Value field is required.</p>
+                      <input type="text" placeholder="0.00" ui-number-mask ng-model="widget.price"  
+                           class="form-control" name="value" id="price">                                            
                     </div>
                     <div class="form-group">
                       <label for="color">Color:</label>
@@ -47,13 +47,12 @@
                         <option ng-value="magenta">magenta</option>
                         <option ng-value="white">white</option>
                         <option ng-value="other">depends on the viewing angle</option>
-                      </select>
-                      <p ng-show="widgetForm.color.$invalid && !widgetForm.color.$pristine" class="help-block">Color field is required.</p>
+                      </select>                      
                     </div>
                     <div class="checkbox">
                       <label><input ng-model="widget.melts" type="checkbox"> Melts</label>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" >
                       <label for="invetory">Inventory:</label>
                       <input type="text" ng-model="widget.inventory" placeholder="#?" class="form-control" id="inventory">
                     </div>

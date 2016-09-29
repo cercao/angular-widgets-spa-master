@@ -1,0 +1,26 @@
+{
+  "name": "angular-widgets-spa-master",
+  "version": "1.0.0",
+  "description": "Simple angular application using rest API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cercao/angular-widgets-spa-master.git"
+  },
+  "keywords": [
+    "spa"
+  ],
+  "author": "Lucas Rodrigues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cercao/angular-widgets-spa-master/issues"
+  },
+  "homepage": "https://github.com/cercao/angular-widgets-spa-master#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "serve-favicon": "^2.3.0"
+  }
+}

@@ -6,7 +6,8 @@ angular.module('angular-widget-app')
       .then(function (response) {
           $scope.users = response.data;
       }, function (error) {
-          alert('Unable to load user data: ' + error.message);
+          error.message ? 
+                alert('Unable to load user data: ' + error.message) : alert('Unable to load user data.')
       });      
       
     $scope.view = function(id){
@@ -17,7 +18,8 @@ angular.module('angular-widget-app')
                 $scope.detail = true;
                 $scope.user = response.data;                
             }, function (error) {
-                alert('Unable to get user data: ' + error.message);
+                error.message ? 
+                    alert('Unable to get user data: ' + error.message) : alert('Unable to get user data.')
             });   
     };
     

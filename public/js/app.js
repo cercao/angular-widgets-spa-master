@@ -1,4 +1,7 @@
-angular.module('angular-widget-app', ['ui.bootstrap', 'ui.router'])
+angular.module('angular-widget-app', [
+    'ui.bootstrap', 
+    'ui.router',
+    'ui.utils.masks'])
 .config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
