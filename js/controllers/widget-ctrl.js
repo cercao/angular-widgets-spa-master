@@ -28,11 +28,20 @@ angular.module('angular-widget-app')
                 $scope.creating = false;
                 $scope.widget = response.data;                
             }, function (error) {
-                alert('Unable to get widget data: ' + error.message);
+                if(error.message) {
+                    alert('Unable to getting widget data: ' + error.message);      
+                } else {
+                    alert('Unable to getting widget data.');
+                }
             });            
      };
      
      $scope.submit = function(){
+        
+        if (!$scope.widgetForm.$valid) {
+            alert('Form is not valid');
+	        return;
+        }
         
         if ($scope.creating)
             widgetFactory.insertWidget($scope.widget)
@@ -42,7 +51,11 @@ angular.module('angular-widget-app')
          
                     alert("New widget saved!");
                 }, function (error) {
-                    alert('Unable to insert widget data: ' + error.message);
+                    if(error.message) {
+                        alert('Unable to creating widget data: ' + error.message);      
+                    } else {
+                        alert('Unable to creating widget data.');
+                    }
                 });   
          else
             widgetFactory.updateWidget($scope.widget)
@@ -52,7 +65,11 @@ angular.module('angular-widget-app')
                     
                     alert("Selected widget was saved!");
                 }, function (error) {
-                    alert('Unable to insert widget data: ' + error.message);
+                    if(error.message) {
+                        alert('Unable to insert widget data: ' + error.message);      
+                    } else {
+                        alert('Unable to insert widget data.');
+                    }
                 });   
           
      };

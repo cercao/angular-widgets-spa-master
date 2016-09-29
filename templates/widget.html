@@ -24,20 +24,22 @@
             <div class="col-lg-12">
               <div class="widget">                
                 <div class="widget-body">
-                  <form ng-submit="submit()" >
+                  <form name="widgetForm" ng-submit="submit()" novalidate>
                     <legend ng-bind="editing == true ? 'Edit Widget' : 'Create Widget'"></legend>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error' : widgetForm.name.$invalid && !widgetForm.name.$pristine }">
                       <label for="name">Name:</label>
-                      <input type="text" ng-model="widget.name" class="form-control" id="name">
-                      <input type="text" ng-show="false" ng-model="widget.id" class="form-control" id="name">
+                      <input type="text" ng-model="widget.name" class="form-control" name="name" id="name" required>
+                      <input type="text" ng-show="false" ng-model="widget.id" class="form-control" >
+                      <p ng-show="widgetForm.name.$invalid && !widgetForm.name.$pristine" class="help-block">Name field is required.</p>                
                     </div>
                     <div class="form-group">
                       <label for="price">Price:</label>
-                      <input type="text" placeholder="0.00" ng-model="widget.price"  class="form-control" id="price">
+                      <input type="text" placeholder="0.00" ng-model="widget.price" required class="form-control" name="value" id="price">
+                      <p ng-show="widgetForm.value.$invalid && !widgetForm.value.$pristine" class="help-block">Value field is required.</p>
                     </div>
                     <div class="form-group">
                       <label for="color">Color:</label>
-                      <select id="color" class="form-control" ng-model="widget.color" >
+                      <select id="color" class="form-control" required name="color" ng-model="widget.color" >
                         <option ng-value="red" >red</option>
                         <option ng-value="purple">purple</option>
                         <option ng-value="black">black</option>
@@ -46,6 +48,7 @@
                         <option ng-value="white">white</option>
                         <option ng-value="other">depends on the viewing angle</option>
                       </select>
+                      <p ng-show="widgetForm.color.$invalid && !widgetForm.color.$pristine" class="help-block">Color field is required.</p>
                     </div>
                     <div class="checkbox">
                       <label><input ng-model="widget.melts" type="checkbox"> Melts</label>
