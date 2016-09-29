@@ -22,7 +22,7 @@ $ node app.js // or nodemon app.js
 - I icluded a new form on User screen for view User details;
 
 # Last Updates
-- Included error handle in all services calls (with ternary expression)
+- Included error handle in all services calls
 - Included money mask in widget insert
 - Included required validation of field Name
 - Included node server
